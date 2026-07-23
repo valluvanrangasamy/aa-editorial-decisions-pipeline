@@ -36,9 +36,7 @@ Manuscript titles often change slightly between rejection and eventual publicati
 
 The algorithm works by recursively finding the **longest common substring** of the two strings, then repeating the search in the unmatched text to the left and right of that block, until no common text remains. The similarity ratio is then:
 
-```
 similarity = 2 × M / T
-```
 
 where **M** is the total number of matching characters across all common blocks and **T** is the combined length of both strings. The ratio ranges from 0 (nothing in common) to 1 (identical).
 
@@ -46,41 +44,30 @@ Before comparison, both titles are normalized: converted to lowercase, stripped 
 
 ### Worked example
 
-Submitted title: `Postoperative Delirium in Elderly Patients`
-Published title: `Postoperative delirium in older patients`
+Submitted title: Postoperative Delirium in Elderly Patients
+Published title: Postoperative delirium in older patients
 
 After cleaning, the strings are:
-
-```
 postoperative delirium in elderly patients   (42 characters)
 postoperative delirium in older patients     (40 characters)
-```
 
 The algorithm finds three matching blocks totaling **M = 39** characters: the shared prefix `postoperative delirium in ` (26 characters), the fragment `lder` shared by "e**lder**ly" and "o**lder**" (4 characters), and the shared suffix ` patients` (9 characters). With T = 42 + 40 = 82:
 
-```
 similarity = 2 × 39 / 82 = 0.9512
-```
 
 ### From similarity to confidence
 
 Title similarity alone is not sufficient — short generic titles can score highly against unrelated papers. The composite confidence score therefore also checks whether the corresponding author's surname appears in the candidate record's author list:
 
-```
 confidence = 0.7 × title_similarity + 0.3 × author_match
-```
 
 where `author_match` is 1 if the surname is found and 0 otherwise. Continuing the example, if the corresponding author's surname appears among the candidate's authors:
 
-```
 confidence = 0.7 × 0.9512 + 0.3 = 0.9659   →   high-confidence tier
-```
 
 If the surname did not match:
 
-```
 confidence = 0.7 × 0.9512 + 0 = 0.6659     →   medium-confidence tier
-```
 
 The tiers used for triage are:
 
