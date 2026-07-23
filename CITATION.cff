@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the research letter below."
+title: "Automated publication tracking of rejected manuscripts"
+authors:
+  - family-names: Rangasamy
+    given-names: Valluvan
+    email: vrangasa@bidmc.harvard.edu
+    affiliation: "Beth Israel Deaconess Medical Center / Harvard Medical School"
+license: MIT
+repository-code: "https://github.com/valluvanrangasamy/aa-editorial-decisions-pipeline"
+preferred-citation:
+  type: article
+  title: "Tracking the Publication Fate of Rejected Manuscripts: A Hybrid Automated-Manual Approach"
+  authors:
+    - family-names: Rangasamy
+      given-names: Valluvan
+    - family-names: Mount
+      given-names: Daniel
+    - family-names: Vetter
+      given-names: Thomas R.
+  journal: "Anesthesia & Analgesia"
