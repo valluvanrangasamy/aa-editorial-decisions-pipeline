@@ -102,7 +102,7 @@ Rangasamy V, Mount D, Vetter T. Tracking the Publication Fate of Rejected Manusc
 A Hybrid Automated–Manual Approach. *Anesth Analg*. 2026.
 doi:10.1213/ANE.0000000000008347
 
-Software archive: [![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI_HERE.svg)](https://doi.org/ZENODO_DOI_HERE)
+Software archive: [![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI_HERE.svg)](https://doi.org/10.5281/zenodo.22961402)
 
 A machine-readable citation is provided in `CITATION.cff` — GitHub's "Cite this repository" button generates APA and BibTeX formats automatically.
 
