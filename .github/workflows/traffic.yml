@@ -1,0 +1,56 @@
+# .github/workflows/traffic.yml
+#
+# Logs repository traffic (views/clones) to traffic/traffic_log.csv every week
+# so the 14-day window GitHub shows in Insights > Traffic is never lost.
+#
+# Setup (one time):
+#   1. Create a fine-grained personal access token with
+#      Repository access = this repo only, Permissions > Administration = Read-only.
+#   2. Save it as a Repository secret named TRAFFIC_TOKEN
+#      (Settings > Secrets and variables > Actions > New repository secret).
+#   3. Settings > Actions > General > Workflow permissions:
+#      select "Read and write permissions" and save.
+
+name: Log repository traffic
+
+on:
+  schedule:
+    # Every Monday at 06:17 UTC (odd minute avoids the on-the-hour queue).
+    - cron: "17 6 * * 1"
+  workflow_dispatch:   # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: traffic-log
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch traffic and update CSV
+        env:
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+        run: python scripts/log_traffic.py
+
+      - name: Commit updated log
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add traffic/traffic_log.csv
+          if git diff --cached --quiet; then
+            echo "No traffic changes to commit."
+          else
+            git commit -m "chore: update traffic log ($(date -u +%Y-%m-%d))"
+            git push
+          fi
