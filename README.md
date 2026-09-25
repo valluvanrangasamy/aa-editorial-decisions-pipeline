@@ -1,6 +1,6 @@
 # Automated Publication Tracking of Rejected Manuscripts
 
-This repository contains `manuscript_tracker.py`, the automated tracking component of a hybrid automated–manual pipeline developed to determine where manuscripts rejected by *Anesthesia & Analgesia* were subsequently published. The script accompanies two manuscripts currently under review at *Anesthesia & Analgesia*: a full-length analysis of manuscript trajectories following editorial decisions and a companion Research Letter describing the tracking methodology.
+This repository contains `manuscript_tracker.py`, the automated tracking component of a hybrid automated–manual pipeline developed to determine where manuscripts rejected by *Anesthesia & Analgesia* were subsequently published. The script accompanies two manuscripts published in Anesthesia & Analgesia: a full-length analysis of manuscript trajectories following editorial decisions (doi:10.1213/ANE.0000000000008346) and a companion Research Letter describing the tracking methodology (doi:10.1213/ANE.0000000000008347).
 
 **Author:** Valluvan Rangasamy, MD, MPH
 **Position:** Editorial Fellow, *Anesthesia & Analgesia*
