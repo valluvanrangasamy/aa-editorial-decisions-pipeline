@@ -94,11 +94,15 @@ Runtime scales with the number of manuscripts because of API rate limiting; a ru
 
 This repository contains only the automated publication-tracking component of the study pipeline. The remaining analysis code (journal classification and statistical analysis) is not publicly posted; access to that source code may be granted upon request to the author.
 
-## How to cite
+## Citation
 
-If you use this software in published work, please cite the companion Research Letter:
+If you use this code, please cite the accompanying Research Letter:
 
-> Rangasamy V, Mount D, Vetter TR. Tracking the Publication Fate of Rejected Manuscripts: A Hybrid Automated-Manual Approach. *Anesthesia & Analgesia.* (Under review; full citation will be posted upon publication.)
+Rangasamy V, Mount D, Vetter T. Tracking the Publication Fate of Rejected Manuscripts:
+A Hybrid Automated–Manual Approach. *Anesth Analg*. 2026.
+doi:10.1213/ANE.0000000000008347
+
+Software archive: [![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI_HERE.svg)](https://doi.org/ZENODO_DOI_HERE)
 
 A machine-readable citation is provided in `CITATION.cff` — GitHub's "Cite this repository" button generates APA and BibTeX formats automatically.
 
